@@ -91,3 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//so we can access somethings in the appDelegate
+let ad = UIApplication.shared.delegate as! AppDelegate
+//now we have a variable for our context
+let context = ad.persistentContainer.viewContext
+

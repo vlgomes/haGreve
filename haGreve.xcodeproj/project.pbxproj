@@ -13,6 +13,8 @@
 		2761B8AB1E9A3EB7002BE35E /* haGreve.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8A91E9A3EB7002BE35E /* haGreve.xcdatamodeld */; };
 		2761B8AD1E9A3EB7002BE35E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2761B8AC1E9A3EB7002BE35E /* Assets.xcassets */; };
 		2761B8B01E9A3EB7002BE35E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2761B8AE1E9A3EB7002BE35E /* LaunchScreen.storyboard */; };
+		2761B8BD1E9A4203002BE35E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8BC1E9A4203002BE35E /* DataService.swift */; };
+		2761B8BF1E9A44C2002BE35E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8BE1E9A44C2002BE35E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2761B8AC1E9A3EB7002BE35E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2761B8AF1E9A3EB7002BE35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2761B8B11E9A3EB7002BE35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2761B8BC1E9A4203002BE35E /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		2761B8BE1E9A44C2002BE35E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,12 @@
 		2761B8A11E9A3EB7002BE35E /* haGreve */ = {
 			isa = PBXGroup;
 			children = (
+				2761B8BB1E9A41F9002BE35E /* Services */,
+				2761B8BA1E9A41F4002BE35E /* Util */,
+				2761B8B71E9A40A3002BE35E /* Model */,
+				2761B8B81E9A40AA002BE35E /* View */,
+				2761B8B91E9A40B5002BE35E /* Controller */,
 				2761B8A21E9A3EB7002BE35E /* AppDelegate.swift */,
-				2761B8A41E9A3EB7002BE35E /* ViewController.swift */,
 				2761B8A61E9A3EB7002BE35E /* Main.storyboard */,
 				2761B8AC1E9A3EB7002BE35E /* Assets.xcassets */,
 				2761B8AE1E9A3EB7002BE35E /* LaunchScreen.storyboard */,
@@ -65,6 +73,44 @@
 				2761B8A91E9A3EB7002BE35E /* haGreve.xcdatamodeld */,
 			);
 			path = haGreve;
+			sourceTree = "<group>";
+		};
+		2761B8B71E9A40A3002BE35E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2761B8B81E9A40AA002BE35E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2761B8B91E9A40B5002BE35E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2761B8A41E9A3EB7002BE35E /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2761B8BA1E9A41F4002BE35E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2761B8BE1E9A44C2002BE35E /* Constants.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		2761B8BB1E9A41F9002BE35E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2761B8BC1E9A4203002BE35E /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2761B8BF1E9A44C2002BE35E /* Constants.swift in Sources */,
 				2761B8AB1E9A3EB7002BE35E /* haGreve.xcdatamodeld in Sources */,
 				2761B8A51E9A3EB7002BE35E /* ViewController.swift in Sources */,
 				2761B8A31E9A3EB7002BE35E /* AppDelegate.swift in Sources */,
+				2761B8BD1E9A4203002BE35E /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +356,7 @@
 				2761B8B61E9A3EB7002BE35E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

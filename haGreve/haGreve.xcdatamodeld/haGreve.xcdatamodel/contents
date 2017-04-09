@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Company" representedClassName="Company" syncable="YES" codeGenerationType="class">
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="strikes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strike" inverseName="strikeHasCompany" inverseEntity="Strike" syncable="YES"/>
+    </entity>
+    <entity name="Strike" representedClassName="Strike" syncable="YES" codeGenerationType="class">
+        <attribute name="allDay" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="canceled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sourceLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="strikeDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="strikeHasCompany" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="strikes" inverseEntity="Company" syncable="YES"/>
+        <relationship name="strikeHasSubmitter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Submitter" inverseName="strikes" inverseEntity="Submitter" syncable="YES"/>
+    </entity>
+    <entity name="Submitter" representedClassName="Submitter" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitterId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="strikes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strike" inverseName="strikeHasSubmitter" inverseEntity="Strike" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Company" positionX="-54" positionY="-171" width="128" height="90"/>
+        <element name="Strike" positionX="-407" positionY="-117" width="128" height="180"/>
+        <element name="Submitter" positionX="-146" positionY="180" width="128" height="103"/>
+    </elements>
 </model>
