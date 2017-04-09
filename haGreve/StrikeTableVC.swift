@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class StrikeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var strikeTableView: UITableView!
     
     var controller : NSFetchedResultsController<Strike>!
