@@ -17,6 +17,9 @@ class DataService{
         
         let url = URL(string: URL_STRIKES)
         
+        //the call as to by synchronous
+        let semaphore = DispatchSemaphore(value: 0)
+        
         let task = URLSession.shared.dataTask(with: url!){
             (data, response, error) in
             
@@ -39,22 +42,25 @@ class DataService{
                                     
                                     let strike = Strike(context: context)
 
-                                    if let startDate = strikeJson["start_date"] as? String{
+                                    if let startDateJSON = strikeJson["start_date"] as? String{
                                         
                                         let dateFormatter = DateFormatter()
                                         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
                                         
-                                        if let startDate: NSDate = dateFormatter.date(from: startDate)! as NSDate{
+                                        if let startDate: NSDate = dateFormatter.date(from: startDateJSON) as NSDate?{
                                             strike.startDate = startDate
                                         }
                                     }
                                     
-                                    if let endDate = strikeJson["end_date"] as? String{
+                                    if let endDateJSON = strikeJson["end_date"] as? String{
                                         
                                         let dateFormatter = DateFormatter()
                                         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
                                         
-                                        if let endDate: NSDate = dateFormatter.date(from: endDate)! as NSDate{
+                                        if let endDate: NSDate = dateFormatter.date(from: endDateJSON) as NSDate?{
+                                            
                                             strike.endDate = endDate
                                         }
                                     }
@@ -97,6 +103,8 @@ class DataService{
                                             
                                             company.companyName = companyName
                                         }
+                                        
+                                        strike.company = company
                                     }
                                     
                                     
@@ -113,6 +121,8 @@ class DataService{
                                             
                                             submitter.lastName = lastName
                                         }
+                                        
+                                        strike.submitter = submitter
                                     }
                                     
                                     //saves the data to database
@@ -126,9 +136,12 @@ class DataService{
                     
                 }
             }
+            semaphore.signal()
         }
         
         task.resume()
+        
+        semaphore.wait(timeout: .distantFuture)
     }
     
     static func downloadCompanies(){

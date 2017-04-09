@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2761B8A31E9A3EB7002BE35E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8A21E9A3EB7002BE35E /* AppDelegate.swift */; };
-		2761B8A51E9A3EB7002BE35E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8A41E9A3EB7002BE35E /* ViewController.swift */; };
+		2761B8A51E9A3EB7002BE35E /* StrikeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8A41E9A3EB7002BE35E /* StrikeTableViewController.swift */; };
 		2761B8A81E9A3EB7002BE35E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2761B8A61E9A3EB7002BE35E /* Main.storyboard */; };
 		2761B8AB1E9A3EB7002BE35E /* haGreve.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8A91E9A3EB7002BE35E /* haGreve.xcdatamodeld */; };
 		2761B8AD1E9A3EB7002BE35E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2761B8AC1E9A3EB7002BE35E /* Assets.xcassets */; };
 		2761B8B01E9A3EB7002BE35E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2761B8AE1E9A3EB7002BE35E /* LaunchScreen.storyboard */; };
 		2761B8BD1E9A4203002BE35E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8BC1E9A4203002BE35E /* DataService.swift */; };
 		2761B8BF1E9A44C2002BE35E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2761B8BE1E9A44C2002BE35E /* Constants.swift */; };
+		27F32EB61E9A8B5600F6B5CD /* StrikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F32EB51E9A8B5600F6B5CD /* StrikeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2761B89F1E9A3EB7002BE35E /* haGreve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haGreve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2761B8A21E9A3EB7002BE35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2761B8A41E9A3EB7002BE35E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2761B8A41E9A3EB7002BE35E /* StrikeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeTableViewController.swift; sourceTree = "<group>"; };
 		2761B8A71E9A3EB7002BE35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2761B8AA1E9A3EB7002BE35E /* haGreve.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = haGreve.xcdatamodel; sourceTree = "<group>"; };
 		2761B8AC1E9A3EB7002BE35E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +29,7 @@
 		2761B8B11E9A3EB7002BE35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2761B8BC1E9A4203002BE35E /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		2761B8BE1E9A44C2002BE35E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27F32EB51E9A8B5600F6B5CD /* StrikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		2761B8B81E9A40AA002BE35E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27F32EB51E9A8B5600F6B5CD /* StrikeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -92,7 +95,7 @@
 		2761B8B91E9A40B5002BE35E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2761B8A41E9A3EB7002BE35E /* ViewController.swift */,
+				2761B8A41E9A3EB7002BE35E /* StrikeTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,7 +191,8 @@
 			files = (
 				2761B8BF1E9A44C2002BE35E /* Constants.swift in Sources */,
 				2761B8AB1E9A3EB7002BE35E /* haGreve.xcdatamodeld in Sources */,
-				2761B8A51E9A3EB7002BE35E /* ViewController.swift in Sources */,
+				2761B8A51E9A3EB7002BE35E /* StrikeTableViewController.swift in Sources */,
+				27F32EB61E9A8B5600F6B5CD /* StrikeCell.swift in Sources */,
 				2761B8A31E9A3EB7002BE35E /* AppDelegate.swift in Sources */,
 				2761B8BD1E9A4203002BE35E /* DataService.swift in Sources */,
 			);

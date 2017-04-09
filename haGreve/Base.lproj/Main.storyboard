@@ -1,26 +1,115 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Xe2-CH-ayH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Há Greve?-->
+        <scene sceneID="l4b-Zy-6rS">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="adx-rJ-vZ8" customClass="StrikeTableViewController" customModule="haGreve" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" id="taL-rX-VcF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StrikeCell" rowHeight="116" id="nMY-yF-7J5" customClass="StrikeCell" customModule="haGreve" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="116"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nMY-yF-7J5" id="OG3-dS-0Z4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jj-Yg-dqk">
+                                            <rect key="frame" x="16" y="16" width="343" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ucm-S8-iWc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De : StartDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDh-g9-50M">
+                                            <rect key="frame" x="16" y="45" width="88.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="zxO-HD-GiZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A : EndDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyR-5s-wBR">
+                                            <rect key="frame" x="284" y="45" width="75" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="5UI-fV-VEc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strike Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqh-Sd-ecO">
+                                            <rect key="frame" x="16" y="79.5" width="343" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7Jj-Yg-dqk" firstAttribute="leading" secondItem="OG3-dS-0Z4" secondAttribute="leadingMargin" constant="8" id="9wc-5J-Qtk"/>
+                                        <constraint firstItem="wDh-g9-50M" firstAttribute="leading" secondItem="OG3-dS-0Z4" secondAttribute="leadingMargin" constant="8" id="CID-QE-tEX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Dqh-Sd-ecO" secondAttribute="trailing" constant="8" id="HnL-0d-fuu"/>
+                                        <constraint firstItem="MyR-5s-wBR" firstAttribute="top" secondItem="7Jj-Yg-dqk" secondAttribute="bottom" constant="8" id="NT5-vJ-Lwr"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MyR-5s-wBR" secondAttribute="trailing" constant="8" id="PMG-WU-PB4"/>
+                                        <constraint firstItem="7Jj-Yg-dqk" firstAttribute="top" secondItem="OG3-dS-0Z4" secondAttribute="topMargin" constant="8" id="PxH-ne-QLP"/>
+                                        <constraint firstItem="wDh-g9-50M" firstAttribute="top" secondItem="7Jj-Yg-dqk" secondAttribute="bottom" constant="8" id="kV1-gp-uBc"/>
+                                        <constraint firstItem="Dqh-Sd-ecO" firstAttribute="leading" secondItem="OG3-dS-0Z4" secondAttribute="leadingMargin" constant="8" id="rgm-ae-h9T"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Dqh-Sd-ecO" secondAttribute="bottom" constant="8" id="tLx-l9-HbM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7Jj-Yg-dqk" secondAttribute="trailing" constant="8" id="zbw-pj-8Dx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="strikeCompanyLbl" destination="7Jj-Yg-dqk" id="mOa-Z0-LV3"/>
+                                    <outlet property="strikeDescriptionLbl" destination="Dqh-Sd-ecO" id="TPF-d1-FvN"/>
+                                    <outlet property="strikeEndDateLbl" destination="MyR-5s-wBR" id="eY9-jN-57N"/>
+                                    <outlet property="strikeStartDateLbl" destination="wDh-g9-50M" id="X7g-eN-4cj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="adx-rJ-vZ8" id="2P9-c3-8PA"/>
+                            <outlet property="delegate" destination="adx-rJ-vZ8" id="LV4-hX-vQ7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Há Greve?" id="CSA-zS-dTg"/>
+                    <connections>
+                        <outlet property="strikeTableView" destination="taL-rX-VcF" id="aLg-4Z-Gop"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUe-I1-F3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-749.60000000000002" y="112.89355322338831"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QAD-lR-g9Z">
+            <objects>
+                <navigationController id="Xe2-CH-ayH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lss-6s-33O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="adx-rJ-vZ8" kind="relationship" relationship="rootViewController" id="O17-EQ-UlE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8np-q2-7iW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1558" y="113"/>
         </scene>
     </scenes>
 </document>
