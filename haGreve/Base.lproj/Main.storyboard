@@ -148,7 +148,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-Wc-aWa">
-                                <rect key="frame" x="16" y="84" width="343" height="258"/>
+                                <rect key="frame" x="16" y="84" width="343" height="237"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-XV-ADu">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
@@ -170,35 +170,38 @@
                                     <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-wI-GXx">
                                         <rect key="frame" x="0.0" y="21" width="343" height="216"/>
                                     </pickerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gph-HP-o23">
-                                        <rect key="frame" x="0.0" y="237" width="343" height="21"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-sD-iAA">
-                                                <rect key="frame" x="0.0" y="0.0" width="293" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="cZR-5g-mga"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOW-S0-huO">
-                                                <rect key="frame" x="294" y="0.0" width="51" height="21"/>
-                                            </switch>
-                                        </subviews>
-                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gph-HP-o23">
+                                <rect key="frame" x="16" y="341" width="343" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-sD-iAA">
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="cZR-5g-mga"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOW-S0-huO">
+                                        <rect key="frame" x="294" y="0.0" width="51" height="21"/>
+                                    </switch>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Oo-qi-Mwa" firstAttribute="leading" secondItem="vdi-Z9-i2Z" secondAttribute="leading" id="0Kc-ez-3mg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gph-HP-o23" secondAttribute="trailing" id="6hO-63-sgy"/>
                             <constraint firstAttribute="trailing" secondItem="1Oo-qi-Mwa" secondAttribute="trailing" id="87m-ha-i3B"/>
                             <constraint firstItem="8ld-Wc-aWa" firstAttribute="leading" secondItem="vdi-Z9-i2Z" secondAttribute="leadingMargin" id="EPb-Om-PcL"/>
                             <constraint firstAttribute="trailing" secondItem="1Oo-qi-Mwa" secondAttribute="trailing" id="MY7-kD-Gjq"/>
+                            <constraint firstItem="gph-HP-o23" firstAttribute="top" secondItem="8ld-Wc-aWa" secondAttribute="bottom" constant="20" id="PQn-Fg-oJn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8ld-Wc-aWa" secondAttribute="trailing" id="TbH-xy-xHB"/>
                             <constraint firstItem="8ld-Wc-aWa" firstAttribute="top" secondItem="1Oo-qi-Mwa" secondAttribute="bottom" constant="40" id="YP8-fo-98m"/>
                             <constraint firstItem="1Oo-qi-Mwa" firstAttribute="top" secondItem="vdi-Z9-i2Z" secondAttribute="top" id="liR-Tv-w1D"/>
+                            <constraint firstItem="gph-HP-o23" firstAttribute="leading" secondItem="vdi-Z9-i2Z" secondAttribute="leadingMargin" id="wFV-p3-40F"/>
                         </constraints>
                     </view>
                 </viewController>
