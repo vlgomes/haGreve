@@ -144,8 +144,13 @@ class DataService{
         semaphore.wait(timeout: .distantFuture)
     }
     
-    static func downloadCompanies(){
+    static func downloadCompanies() -> [Company]{
         let url = URL(string: URL_COMPANIES)
+        
+        var listOfCompanies = [Company]()
+        
+        //the call as to by synchronous
+        let semaphore = DispatchSemaphore(value: 0)
         
         let task = URLSession.shared.dataTask(with: url!){
             (data, response, error) in
@@ -178,7 +183,7 @@ class DataService{
                                         company.companyName = companyName
                                     }
                                     
-                                    ad.saveContext()
+                                    listOfCompanies.append(company)
                                 }
                             }
                         }
@@ -187,9 +192,14 @@ class DataService{
                     }
                 }
             }
+            semaphore.signal()
         }
         
         task.resume()
+        
+        semaphore.wait(timeout: .distantFuture)
+        
+        return listOfCompanies
     }
     
     //DISCLAIMER
