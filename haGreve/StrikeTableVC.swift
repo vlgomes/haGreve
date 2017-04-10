@@ -189,18 +189,6 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    @IBAction func dateBtnPressed(_ sender: Any) {
-    
-        performSegue(withIdentifier: "DataVCSegue", sender: self)
-
-    }
-    
-    @IBAction func companyBtnPressed(_ sender: Any) {
-        
-        performSegue(withIdentifier: "CompanyVCSegue", sender: self)
-    }
-    
-    
     func deleteAllRecords() {
         let deleteSubmitterFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Submitter")
         let deleteSubmittersRequest = NSBatchDeleteRequest(fetchRequest: deleteSubmitterFetchRequest)

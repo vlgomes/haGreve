@@ -89,32 +89,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Há Greve?" id="CSA-zS-dTg">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="aGr-dA-vjL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6pI-Fk-EmI">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Data">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Data" id="USI-di-wGe">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="dateBtnPressed:" destination="adx-rJ-vZ8" id="1hs-bC-UK6"/>
-                                <segue destination="GRC-qt-PJL" kind="show" identifier="DataVCSegue" id="gI1-jh-O5s"/>
+                                <segue destination="GRC-qt-PJL" kind="show" identifier=" DataVCSegue" id="aDo-M2-vtC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="103-tX-6yI">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nsd-7z-f34">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Empresa">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Companhia" id="Tlu-aZ-ino">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="companyBtnPressed:" destination="adx-rJ-vZ8" id="jsX-Tw-JIl"/>
-                                <segue destination="FBx-Kd-dfS" kind="show" identifier="CompanyVCSegue" id="PPe-w6-Lem"/>
+                                <segue destination="FBx-Kd-dfS" kind="show" identifier="CompanyVCSegue" id="kYc-al-wkj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
