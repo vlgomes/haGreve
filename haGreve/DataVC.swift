@@ -9,6 +9,8 @@
 import UIKit
 
 class DataVC: UIViewController {
+    
+    var dateAllSelected : Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()

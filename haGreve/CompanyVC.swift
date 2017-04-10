@@ -9,6 +9,8 @@
 import UIKit
 
 class CompanyVC: UIViewController {
+    
+    var companyAllSelected : Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()

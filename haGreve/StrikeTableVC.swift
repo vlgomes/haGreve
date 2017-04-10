@@ -12,11 +12,14 @@ import CoreData
 class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var strikeTableView: UITableView!
     
+    var filterDateAllSelected : Bool = true
+    var filterCompanyAllSelected : Bool = true
+    
     var controller : NSFetchedResultsController<Strike>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         //check if internet is available, if it is, delete all records from database and retrieve most recent ones from web service
         if(DataService.isInternetAvailable()){
             deleteAllRecords()
@@ -166,7 +169,38 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
             break
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DataVCSegue"
+        {
+            if let destination =  segue.destination as? DataVC
+            {
+                destination.dateAllSelected = filterDateAllSelected
+            }
+        }
+        if segue.identifier == "CompanyVCSegue"
+        {
+            if let destination =  segue.destination as? CompanyVC
+            {
+                destination.companyAllSelected = filterCompanyAllSelected
+            }
+        }
+    }
+    
+    @IBAction func dateBtnPressed(_ sender: Any) {
+    
+        performSegue(withIdentifier: "DataVCSegue", sender: self)
 
+    }
+    
+    @IBAction func companyBtnPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "CompanyVCSegue", sender: self)
+    }
+    
+    
     func deleteAllRecords() {
         let deleteSubmitterFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Submitter")
         let deleteSubmittersRequest = NSBatchDeleteRequest(fetchRequest: deleteSubmitterFetchRequest)
