@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, DataVCDelegate {
+class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, DateVCDelegate, CompanyVCDelegate {
     @IBOutlet var strikeTableView: UITableView!
     
     var filterDateAllSelected : Bool = true
     var filterCompanyAllSelected : Bool = true
     var beginDate : Date? = nil
     var endDate : Date? = nil
+    var companySelected : Company? = nil
     
     var controller : NSFetchedResultsController<Strike>!
     
@@ -40,7 +41,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
         strikeTableView.reloadData()
     }
     
-    func sendData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?){
+    func sendDateVCData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?){
         self.filterDateAllSelected = dateAllSelected
         
         //the dates received have the current hour. Set it to 0 in both StartDate and EndDate
@@ -65,12 +66,18 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
         self.endDate = gregorian.date(from: componentsEndDate)!
     }
     
+    func sendCompanyVCData(companyAllSelected: Bool!, company: Company?){
+        self.filterCompanyAllSelected = companyAllSelected
+        
+        self.companySelected = company
+    }
+
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(controller != nil)
         {
             if let sections = controller.sections
             {
-                //if there is anything it will return its number
                 let sectionInfo = sections[section]
                 
                 return sectionInfo.numberOfObjects
@@ -80,7 +87,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //in our case, there would be allways one sectino
+        //in our case, there would be allways one section
         if(controller != nil)
         {
             if let sections = controller.sections
@@ -93,7 +100,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //creating a cell passing the itemCell and the indexPath
+        //creating a cell passing the StrikeCell and the indexPath
         let cell =  tableView.dequeueReusableCell(withIdentifier: "StrikeCell", for: indexPath) as! StrikeCell
         
         configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
@@ -118,12 +125,31 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
         
         fetchRequest.sortDescriptors = [dateSort]
         
+        var datePredicate:NSPredicate? = nil
+        var companyPredicate:NSPredicate? = nil
+        
         //predicates if the dates or the company is selected
         if(!self.filterDateAllSelected){
-            if((beginDate != nil) && (endDate != nil)){
-                
-                fetchRequest.predicate = NSPredicate(format: "(startDate >= %@) AND (endDate <= %@)", beginDate! as NSDate, endDate! as NSDate)
+            if((self.beginDate != nil) && (self.endDate != nil)){
+                datePredicate = NSPredicate(format: "(startDate >= %@) AND (endDate <= %@)", self.beginDate! as NSDate, self.endDate! as NSDate)
             }
+        }
+        
+        if(!self.filterCompanyAllSelected){
+            if(self.companySelected != nil){
+                companyPredicate = NSPredicate(format: "company.companyName == %@", (self.companySelected?.companyName!)!);
+            }
+        }
+        
+        //if both filter are selected, we should search with both predicates
+        if(datePredicate != nil && companyPredicate != nil){
+            fetchRequest.predicate = NSCompoundPredicate.init(type: .and, subpredicates: [datePredicate!,companyPredicate!])
+        } else if (datePredicate != nil && companyPredicate == nil){
+            //if only date filter is selected
+            fetchRequest.predicate = datePredicate
+        } else if (datePredicate == nil && companyPredicate != nil){
+            //if only company filter is selected
+            fetchRequest.predicate = companyPredicate
         }
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:context , sectionNameKeyPath: nil, cacheName: nil)
@@ -132,14 +158,11 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
         
         self.controller = controller
         
-        //a fetch can fail so we have to do a do catch
         do{
             try controller.performFetch()
-            
-            //print("NUMBER OF ROWS FETCHED FROM DATABASE - \(controller.fetchedObjects!.count)")
         } catch{
             let error = error as NSError!
-            print("\(error!)")
+            print("ERROR FETCHING DATA FROM DATABASE - \(error!)")
         }
     }
     
@@ -174,7 +197,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
     
     
     //listens for when we want to make a change
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?){
         
         switch(type)
         {
@@ -216,7 +239,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
         
         if segue.identifier == "DataVCSegue"
         {
-            if let destination =  segue.destination as? DataVC
+            if let destination =  segue.destination as? DateVC
             {
                 destination.dateAllSelected = filterDateAllSelected
                 destination.delegate = self
@@ -227,6 +250,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
             if let destination =  segue.destination as? CompanyVC
             {
                 destination.companyAllSelected = filterCompanyAllSelected
+                destination.delegate = self
             }
         }
     }
@@ -246,7 +270,6 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, 
             try context.execute(deleteCompanysRequest)
             try context.execute(deleteStrikeRequest)
             try context.save()
-            print("Succefully deleted all records in database")
         } catch {
             print ("ERROR: Error deleting all data from Core Data")
         }

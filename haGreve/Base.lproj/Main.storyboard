@@ -95,7 +95,7 @@
                                 <segue destination="GRC-qt-PJL" kind="show" identifier="DataVCSegue" id="aDo-M2-vtC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Companhia" id="Tlu-aZ-ino">
+                        <barButtonItem key="rightBarButtonItem" title="Empresa" id="Tlu-aZ-ino">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="FBx-Kd-dfS" kind="show" identifier="CompanyVCSegue" id="kYc-al-wkj"/>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="162" y="506"/>
         </scene>
-        <!--DataVC-->
+        <!--DateVC-->
         <scene sceneID="5Fu-eN-Tpe">
             <objects>
-                <viewController id="GRC-qt-PJL" customClass="DataVC" customModule="haGreve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GRC-qt-PJL" customClass="DateVC" customModule="haGreve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N7g-ms-n8E"/>
                         <viewControllerLayoutGuide type="bottom" id="8gQ-cm-hcn"/>
@@ -224,7 +224,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uog-u3-6Qp">
-                                <rect key="frame" x="16" y="84" width="343" height="72"/>
+                                <rect key="frame" x="16" y="84" width="343" height="576"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="kqg-9e-N6i">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
@@ -244,28 +244,28 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JRG-WI-ECn">
-                                        <rect key="frame" x="0.0" y="36" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="41" width="320" height="494"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione a data de Início" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIt-0F-2Qs">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aPC-i4-F0e">
-                                                <rect key="frame" x="0.0" y="5" width="320" height="0.0"/>
+                                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aPC-i4-F0e">
+                                                <rect key="frame" x="0.0" y="28.5" width="320" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="513540605.13142198">
                                                     <!--2017-04-10 18:10:05 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione a data de fim" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtb-1G-MHZ">
-                                                <rect key="frame" x="0.0" y="10" width="320" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Seleccione a data de fim" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtb-1G-MHZ">
+                                                <rect key="frame" x="0.0" y="249.5" width="320" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-Es-ySL">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-Es-ySL">
+                                                <rect key="frame" x="0.0" y="278" width="320" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="513540615.12548602">
                                                     <!--2017-04-10 18:10:15 +0000-->
                                                 </date>
@@ -276,7 +276,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="82b-m7-qiW">
-                                        <rect key="frame" x="0.0" y="41" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="545" width="343" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUH-iZ-ebl">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="31"/>

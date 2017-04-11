@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "haGreve/StrikeTableVC.swift"
-            timestampString = "513615466.960215"
+            timestampString = "513616577.691198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "sendData(dateAllSelected:startDate:endDate:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "sendDateVCData(dateAllSelected:startDate:endDate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

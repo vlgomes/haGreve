@@ -29,17 +29,14 @@ class StrikeCell: UITableViewCell {
         strikeDescriptionLbl.text = strike.strikeDescription!
        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.timeStyle = .none
         
         //pass from date to string, to my specified format date
         let startDateString = dateFormatter.string(from:strike.startDate! as Date)
         let endDateString = dateFormatter.string(from:strike.endDate! as Date)
 
-        strikeStartDateLbl
-            
-            .text = "De : \(startDateString)"
+        strikeStartDateLbl.text = "De : \(startDateString)"
         strikeEndDateLbl.text = "A: \(endDateString)"
  
         strikeCompanyLbl.text = strike.company?.companyName

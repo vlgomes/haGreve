@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol DataVCDelegate : class {
-    func sendData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?)
+protocol DateVCDelegate : class {
+    func sendDateVCData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?)
 }
 
-class DataVC: UIViewController {
+class DateVC: UIViewController {
     
     var dateAllSelected : Bool = true
     @IBOutlet var selectDateSwitch: UISwitch!
@@ -20,7 +20,7 @@ class DataVC: UIViewController {
     @IBOutlet var datesStackView: UIStackView!
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
-    weak var delegate: DataVCDelegate? = nil
+    weak var delegate: DateVCDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,6 @@ class DataVC: UIViewController {
         let startDate = self.startDatePicker.date
         let endDate = self.endDatePicker.date
 
-        delegate?.sendData(dateAllSelected: selected, startDate: startDate, endDate: endDate)
+        delegate?.sendDateVCData(dateAllSelected: selected, startDate: startDate, endDate: endDate)
     }
 }

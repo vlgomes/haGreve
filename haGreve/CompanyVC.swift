@@ -9,11 +9,16 @@
 import UIKit
 import CoreData
 
+protocol CompanyVCDelegate : class {
+    func sendCompanyVCData(companyAllSelected: Bool!, company: Company?)
+}
+
 class CompanyVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource  {
     
     @IBOutlet var selectCompanySwitch: UISwitch!
     @IBOutlet var selectAllSwitch: UISwitch!
     @IBOutlet var companyPickerView: UIPickerView!
+    weak var delegate: CompanyVCDelegate? = nil
 
     var companyAllSelected : Bool = true
     var companies = [Company]()
@@ -72,5 +77,14 @@ class CompanyVC: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource  
         //how many columns there are
         //we don't neeed to check the tag because in both there are only 1 component
         return 1
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let selected = self.selectAllSwitch.isOn
+        let company = companies[companyPickerView.selectedRow(inComponent: 0)]
+
+        delegate?.sendCompanyVCData(companyAllSelected: selected, company: company)
     }
 }
