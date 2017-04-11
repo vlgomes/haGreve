@@ -92,7 +92,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Data" id="USI-di-wGe">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="GRC-qt-PJL" kind="show" identifier=" DataVCSegue" id="aDo-M2-vtC"/>
+                                <segue destination="GRC-qt-PJL" kind="show" identifier="DataVCSegue" id="aDo-M2-vtC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Companhia" id="Tlu-aZ-ino">
@@ -131,8 +131,8 @@
                                     <navigationItem title="Filtro Empresas" id="GYj-7p-EfZ"/>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-Wc-aWa">
-                                <rect key="frame" x="16" y="64" width="343" height="278"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8ld-Wc-aWa">
+                                <rect key="frame" x="16" y="64" width="343" height="62"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-XV-ADu">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
@@ -154,18 +154,18 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzC-0J-FFL">
-                                        <rect key="frame" x="0.0" y="31" width="343" height="216"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzC-0J-FFL">
+                                        <rect key="frame" x="0.0" y="31" width="343" height="0.0"/>
                                         <subviews>
-                                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-wI-GXx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                                            <pickerView hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-wI-GXx">
+                                                <rect key="frame" x="-16" y="-95" width="320" height="0.0"/>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gph-HP-o23">
-                                        <rect key="frame" x="0.0" y="257" width="343" height="21"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gph-HP-o23">
+                                        <rect key="frame" x="0.0" y="41" width="343" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-sD-iAA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Todas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-sD-iAA">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="cZR-5g-mga"/>
@@ -174,7 +174,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOW-S0-huO">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOW-S0-huO">
                                                 <rect key="frame" x="294" y="0.0" width="51" height="21"/>
                                                 <connections>
                                                     <action selector="selectAllIsOn:" destination="FBx-Kd-dfS" eventType="valueChanged" id="HrH-dq-SAG"/>
@@ -313,8 +313,10 @@
                     </view>
                     <connections>
                         <outlet property="datesStackView" destination="JRG-WI-ECn" id="xsA-6o-oDf"/>
+                        <outlet property="endDatePicker" destination="vZh-Es-ySL" id="uq7-lB-N60"/>
                         <outlet property="selectAllSwitch" destination="1Of-1g-Si3" id="KTa-z9-bcg"/>
                         <outlet property="selectDateSwitch" destination="rsI-fm-roo" id="mT5-U3-GHv"/>
+                        <outlet property="startDatePicker" destination="aPC-i4-F0e" id="L6w-oR-zMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAc-W1-u63" userLabel="First Responder" sceneMemberID="firstResponder"/>

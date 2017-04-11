@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol DataVCDelegate : class {
+    func sendData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?)
+}
+
 class DataVC: UIViewController {
     
     var dateAllSelected : Bool = true
     @IBOutlet var selectDateSwitch: UISwitch!
     @IBOutlet var selectAllSwitch: UISwitch!
     @IBOutlet var datesStackView: UIStackView!
+    @IBOutlet var startDatePicker: UIDatePicker!
+    @IBOutlet var endDatePicker: UIDatePicker!
+    weak var delegate: DataVCDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,5 +49,15 @@ class DataVC: UIViewController {
         selectDateSwitch.setOn(false, animated: true)
         selectAllSwitch.setOn(true, animated: true)
         self.dateAllSelected = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let selected = self.selectAllSwitch.isOn
+        let startDate = self.startDatePicker.date
+        let endDate = self.endDatePicker.date
+
+        delegate?.sendData(dateAllSelected: selected, startDate: startDate, endDate: endDate)
     }
 }

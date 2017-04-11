@@ -9,17 +9,19 @@
 import UIKit
 import CoreData
 
-class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
+class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate, DataVCDelegate {
     @IBOutlet var strikeTableView: UITableView!
     
     var filterDateAllSelected : Bool = true
     var filterCompanyAllSelected : Bool = true
+    var beginDate : Date? = nil
+    var endDate : Date? = nil
     
     var controller : NSFetchedResultsController<Strike>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         //check if internet is available, if it is, delete all records from database and retrieve most recent ones from web service
         if(DataService.isInternetAvailable()){
             deleteAllRecords()
@@ -33,6 +35,34 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         //get data from database
         attemptFetch()
+        
+        //to reload the data
+        strikeTableView.reloadData()
+    }
+    
+    func sendData(dateAllSelected: Bool!, startDate: Date?, endDate: Date?){
+        self.filterDateAllSelected = dateAllSelected
+        
+        //the dates received have the current hour. Set it to 0 in both StartDate and EndDate
+        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        
+        /*START DATE*/
+        var componentsStartDate = gregorian.components([.year, .month, .day, .hour, .minute, .second], from: startDate!)
+        
+        componentsStartDate.hour = 0
+        componentsStartDate.minute = 0
+        componentsStartDate.second = 0
+        
+        self.beginDate = gregorian.date(from: componentsStartDate)!
+        
+        /*END DATE*/
+        var componentsEndDate = gregorian.components([.year, .month, .day, .hour, .minute, .second], from: endDate!)
+        
+        componentsEndDate.hour = 0
+        componentsEndDate.minute = 0
+        componentsEndDate.second = 0
+        
+        self.endDate = gregorian.date(from: componentsEndDate)!
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +72,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
             {
                 //if there is anything it will return its number
                 let sectionInfo = sections[section]
+                
                 return sectionInfo.numberOfObjects
             }
         }
@@ -49,6 +80,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        //in our case, there would be allways one sectino
         if(controller != nil)
         {
             if let sections = controller.sections
@@ -56,8 +88,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
                 return sections.count
             }
         }
-        
-        return 1
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,7 +118,15 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
         
         fetchRequest.sortDescriptors = [dateSort]
         
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:context , sectionNameKeyPath: "strikeDescription", cacheName: nil)
+        //predicates if the dates or the company is selected
+        if(!self.filterDateAllSelected){
+            if((beginDate != nil) && (endDate != nil)){
+                
+                fetchRequest.predicate = NSPredicate(format: "(startDate >= %@) AND (endDate <= %@)", beginDate! as NSDate, endDate! as NSDate)
+            }
+        }
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:context , sectionNameKeyPath: nil, cacheName: nil)
         
         controller.delegate = self
         
@@ -96,6 +135,8 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
         //a fetch can fail so we have to do a do catch
         do{
             try controller.performFetch()
+            
+            //print("NUMBER OF ROWS FETCHED FROM DATABASE - \(controller.fetchedObjects!.count)")
         } catch{
             let error = error as NSError!
             print("\(error!)")
@@ -130,7 +171,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
             break;
         }
     }
-
+    
     
     //listens for when we want to make a change
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -178,6 +219,7 @@ class StrikeTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
             if let destination =  segue.destination as? DataVC
             {
                 destination.dateAllSelected = filterDateAllSelected
+                destination.delegate = self
             }
         }
         if segue.identifier == "CompanyVCSegue"
